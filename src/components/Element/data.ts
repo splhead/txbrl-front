@@ -10,41 +10,41 @@ export default {
     'link:schemaRef': {
       '@_xlink:href':
         'SICONFI/cor/ext/gl/plt/case-c-b-m-u-t-s/gl-plt-all-2015-03-25.xsd',
-      '@_xlink:type': 'simple'
+      '@_xlink:type': 'simple',
     },
     'xbrli:context': {
       'xbrli:entity': {
         'xbrli:identifier': {
           '#text': '1100205EX',
-          '@_scheme': 'http://siconfi.tesouro.gov.br'
-        }
+          '@_scheme': 'http://siconfi.tesouro.gov.br',
+        },
       },
       'xbrli:period': { 'xbrli:instant': '2022-07-31' },
-      '@_id': 'C1'
+      '@_id': 'C1',
     },
     'xbrli:unit': [{ 'xbrli:measure': 'iso4217:BRL', '@_id': 'BRL' }],
     'gl-cor:accountingEntries': {
       'gl-cor:documentInfo': {
-        'gl-cor:entriesType': { '#text': 'trialbalance', '@_contextRef': 'C1' }
+        'gl-cor:entriesType': { '#text': 'trialbalance', '@_contextRef': 'C1' },
       },
       'gl-cor:entityInformation': {
         'gl-bus:reportingCalendar': {
           'gl-bus:reportingCalendarPeriod': {
             'gl-bus:periodIdentifier': {
               '#text': '2022-07',
-              '@_contextRef': 'C1'
+              '@_contextRef': 'C1',
             },
             'gl-bus:periodDescription': {
               '#text': '2022-07-01',
-              '@_contextRef': 'C1'
+              '@_contextRef': 'C1',
             },
             'gl-bus:periodStart': {
               '#text': '2022-07-01',
-              '@_contextRef': 'C1'
+              '@_contextRef': 'C1',
             },
-            'gl-bus:periodEnd': { '#text': '2022-07-31', '@_contextRef': 'C1' }
-          }
-        }
+            'gl-bus:periodEnd': { '#text': '2022-07-31', '@_contextRef': 'C1' },
+          },
+        },
       },
       'gl-cor:entryHeader': {
         'gl-cor:entryDetail': [
@@ -53,42 +53,42 @@ export default {
               '#text': 1,
               '@_contextRef': 'C1',
               '@_decimals': '0',
-              '@_unitRef': 'u'
+              '@_unitRef': 'u',
             },
             'gl-cor:account': {
               'gl-cor:accountMainID': {
                 '#text': 111110100,
-                '@_contextRef': 'C1'
+                '@_contextRef': 'C1',
               },
               'gl-cor:accountSub': [
                 {
                   'gl-cor:accountSubID': {
                     '#text': 10131,
-                    '@_contextRef': 'C1'
+                    '@_contextRef': 'C1',
                   },
                   'gl-cor:accountSubType': {
                     '#text': 'PO',
-                    '@_contextRef': 'C1'
-                  }
-                }
-              ]
+                    '@_contextRef': 'C1',
+                  },
+                },
+              ],
             },
             'gl-cor:amount': {
               '#text': 1388187.15,
               '@_contextRef': 'C1',
               '@_decimals': '2',
-              '@_unitRef': 'BRL'
+              '@_unitRef': 'BRL',
             },
             'gl-cor:debitCreditCode': { '#text': 'C', '@_contextRef': 'C1' },
             'gl-cor:xbrlInfo': {
               'gl-cor:xbrlInclude': {
                 '#text': 'beginning_balance',
-                '@_contextRef': 'C1'
-              }
-            }
-          }
-        ]
-      }
-    }
-  }
+                '@_contextRef': 'C1',
+              },
+            },
+          },
+        ],
+      },
+    },
+  },
 }
