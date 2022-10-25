@@ -19,6 +19,7 @@ type Message<T> = {
   tagName: string
   atributes: Attribute[]
   children: (Leaf | T)[]
+  path: string[]
 }
 
 type ParseCallback<T> = (message: Message<T>) => T
@@ -46,6 +47,7 @@ function parseLoop<T>(
     atributes: [],
     children: [],
     tagName: key,
+    path: [],
   }
 
   for (const [innerKey, innerValue] of Object.entries(data)) {
@@ -66,12 +68,16 @@ function parseLoop<T>(
         //   value: innerValue,
         // })
 
+        const path = [key, innerKey]
+        console.log(path)
+
         message.children.push(
           fn({
             type: 'Element',
             atributes: [],
             children: [innerValue],
             tagName: innerKey,
+            path,
           })
         )
       }
