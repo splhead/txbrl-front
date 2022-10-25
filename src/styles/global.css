@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
+
+div > div {
+  padding-left: 1rem;
+}
+
+span.attribute {
+  color: #9cf0af;
+}
+
+span.attribute.key {
+  padding-left: 0.5rem;
+}
+
+span.attribute.value {
+  color: 
+}
+
+span.tag {
+  color: #f5f5f5;
+}

@@ -49,20 +49,20 @@ function parseLoop<T>(
   for (const [innerKey, innerValue] of Object.entries(data)) {
     if (isLeaf(innerValue)) {
       if (innerKey.startsWith('@_')) {
-        console.log('Attribute', { key: innerKey, value: innerValue })
+        //console.log('Attribute', { key: innerKey, value: innerValue })
         message.atributes.push({
           key: innerKey.substring('@_'.length),
           value: innerValue as string,
         })
       } else if (innerKey.startsWith('#text')) {
-        console.log('Text', { key: innerKey, value: innerValue })
+        //console.log('Text', { key: innerKey, value: innerValue })
         message.children.push(innerValue)
       } else {
-        console.log('Unknown', {
-          outerkey: key,
-          key: innerKey,
-          value: innerValue,
-        })
+        // console.log('Unknown', {
+        //   outerkey: key,
+        //   key: innerKey,
+        //   value: innerValue,
+        // })
 
         message.children.push(
           fn({
@@ -75,7 +75,7 @@ function parseLoop<T>(
       }
     } else if (depth > 0) {
       if (Array.isArray(innerValue)) {
-        console.log('Array', { key: innerKey, value: innerValue })
+        //console.log('Array', { key: innerKey, value: innerValue })
         const children = innerValue.map(item => {
           return parseLoop(innerKey, item, fn, depth - 1)
         })
@@ -96,20 +96,26 @@ export function felipe() {
       case 'Element': {
         return (
           <div id={message.tagName}>
-            <span>{`<${message.tagName}`}</span>
-            <br />
+            <span className="text-cyan-500">{`<${message.tagName}`}</span>
+
             {message.atributes.map(atribute => {
               return (
                 <>
-                  <span>{`${atribute.key}="${atribute.value}"`}</span>
-                  <br />
+                  <span className="attribute key">{`${atribute.key}="`}</span>
+                  <span className="">{atribute.value}</span>
+                  <span className="attribute">"</span>
                 </>
               )
             })}
-            <span>{`>`}</span>
-            {message.children}
-            <br />
-            <span>{`</${message.tagName}>`}</span>
+            {message.children.length === 0 ? (
+              <span className="text-cyan-500">{` />`}</span>
+            ) : (
+              <>
+                <span className="text-cyan-500">{`>`}</span>
+                {message.children}
+                <span className="text-cyan-500">{`</${message.tagName}>`}</span>
+              </>
+            )}
           </div>
         )
       }
