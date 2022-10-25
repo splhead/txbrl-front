@@ -1,8 +1,10 @@
 import './styles/global.css'
 
 import data from './components/Element/data'
+import { Attribute } from './components/Attribute'
+import { Element } from './components/Element'
 
-type Leaf = string | number | boolean
+export type Leaf = string | number | boolean
 
 type Tree =
   | Array<Tree>
@@ -10,12 +12,12 @@ type Tree =
       [k in string]: Tree | Leaf
     }>
 
-type Atribute = { key: string; value: string }
+export type Attribute = { key: string; value: string }
 
 type Message<T> = {
   type: 'Element'
   tagName: string
-  atributes: Atribute[]
+  atributes: Attribute[]
   children: (Leaf | T)[]
 }
 
@@ -95,28 +97,12 @@ export function felipe() {
     switch (message.type) {
       case 'Element': {
         return (
-          <div id={message.tagName}>
-            <span className="text-cyan-500">{`<${message.tagName}`}</span>
-
-            {message.atributes.map(atribute => {
-              return (
-                <>
-                  <span className="attribute key">{`${atribute.key}="`}</span>
-                  <span className="">{atribute.value}</span>
-                  <span className="attribute">"</span>
-                </>
-              )
-            })}
-            {message.children.length === 0 ? (
-              <span className="text-cyan-500">{` />`}</span>
-            ) : (
-              <>
-                <span className="text-cyan-500">{`>`}</span>
-                {message.children}
-                <span className="text-cyan-500">{`</${message.tagName}>`}</span>
-              </>
-            )}
-          </div>
+          <Element
+            key={message.tagName}
+            tagname={message.tagName}
+            attributes={message.atributes}
+            children={message.children}
+          />
         )
       }
     }

@@ -120,7 +120,7 @@ function App() {
 
   parse(data)*/
 
-  return <>{[felipe()]}</>
+  return <div>{felipe()}</div>
 }
 
 export { App }
